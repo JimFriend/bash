@@ -1,0 +1,31 @@
+source ~/.profile
+
+parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+export PS1="
+\[\033[36m\]\u\[\033[m\] @ \[\033[33;1m\]\w\[\033[m\]\[\033[32m\]\$(parse_git_branch)\[\033[00m\]
+=> "
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+alias ls='ls -GFh'
+alias goto_code='cd ~/Desktop/Guthy-Renker/storefront'
+alias goto_essentials='cd ~/Desktop/Guthy-Renker/essentials'
+alias goto_demandware='cd ~/Desktop/Guthy-Renker/demandware'
+alias start_selenium='selenium-standalone start --version=2.43.1'
+alias goto_sites='cd /Applications/MAMP/htdocs'
+alias goto_github='cd ~/Documents/GitHub'
+alias check_internet='ping -c 5 www.google.com'
+alias show_hidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
+alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
+alias bmcrv='cd /Users/jfriend/Desktop/Guthy-Renker/Files/javaBMCRValidator; java -jar bmcrvalidator.jar'
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias gp='git push origin master'
+alias gac='git add . && git commit'
